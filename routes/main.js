@@ -69,13 +69,27 @@ router.get('/policy', function(req, res){
   res.render('main/policy');
 });
 
-router.get('/destination_select',function(req,res){
-  res.render('main/destination_select');
+// 배송지 선택
+router.get('/destination_select',async function(req,res){
+  var username = req.user.username;
+  var errors = req.flash('errors')[0] || {};
+
+  res.render('main/destination_select', {
+    username: username,
+    errors: errors
+  });
 });
 
+
 // 배송지 추가/수정
-router.get('/destination_create',function(req,res){
-  res.render('main/destination_create');
+router.get('/destination_create', async function(req,res){
+var username = req.user.username;
+var errors = req.flash('errors')[0] || {};
+
+res.render('main/destination_create',{
+  username:username,
+  errors:errors
+});
 });
 
 //about us --

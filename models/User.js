@@ -30,9 +30,9 @@ var userSchema = mongoose.Schema({
       type:Boolean,
       default:false
   },
-  address:{
-    type:[String]
-  }
+  address:[{
+    type: mongoose.Schema.Types.ObjectId, ref : 'Destination'
+  }]
 },{
   toObject:{virtuals:true}
 });
